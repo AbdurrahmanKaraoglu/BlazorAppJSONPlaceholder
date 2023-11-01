@@ -1,0 +1,60 @@
+﻿/* styles.css */
+
+.user-card {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+    box-shadow: 2px 2px 5px #888888;
+}
+
+    .user-card h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .user-card button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+        .user-card button:hover {
+            background-color: #0056b3;
+        }
+
+
+.album-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    background-color: #f5f5f5;
+}
+
+    .album-card h3 {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .album-card p {
+        font-size: 14px;
+    }
+
+    .album-card button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        .album-card button:hover {
+            background-color: #0056b3;
+        }

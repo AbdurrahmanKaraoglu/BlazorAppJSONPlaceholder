@@ -10,9 +10,10 @@
     @foreach (var album in albums)
     {
         <div class="album-card">
-            <h2>@album.Title</h2>
-            <!-- Diğer albüm bilgileri -->
-            <button @onclick="() => ShowAlbumPhotos(album.Id)">Fotoğraf Listesi</button>
+            <h3>@album.Title</h3>
+            <p>@album.UserId</p>
+            <!-- Daha fazla album bilgisi ekleyebilirsiniz -->
+            <button @onclick="() => ShowAlbumPhotos(album.Id)">Fotoğraflar</button>
         </div>
     }
 }

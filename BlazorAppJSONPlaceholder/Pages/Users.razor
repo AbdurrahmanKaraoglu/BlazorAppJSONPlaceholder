@@ -1,8 +1,7 @@
 ﻿<!-- Users.razor -->
 @page "/users"
 @using BlazorAppJSONPlaceholder.Models;
-@inject BlazorAppJSONPlaceholder.Services.UserService userService;  // UserService servisini enjekte edin
-@inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager; // NavigationManager'ı enjekte edin
+
 
 <h1>Kullanıcı Listesi</h1>
 
@@ -10,11 +9,13 @@
 {
     @foreach (var user in users)
     {
+        @* Yanda Album butonu olacak *@
         <div class="user-card">
             <h2>@user.Name</h2>
-            <!-- Diğer kullanıcı bilgileri -->
-            <button @onclick="() => ShowUserAlbums(user.Id)">Album Listesi</button>
+            <h2>@user.Email</h2>
+            <button @onclick="() => ShowUserAlbums(user.Id)">Album</button>
         </div>
+
     }
 }
 else
