@@ -6,13 +6,20 @@
 
 <h1>Kullanıcı Listesi</h1>
 
-@foreach (var user in users)
+@if (users != null)
 {
-    <div class="user-card">
-        <h2>@user.Name</h2>
-        <!-- Diğer kullanıcı bilgileri -->
-        <button @onclick="() => ShowUserAlbums(user.Id)">Album Listesi</button>
-    </div>
+    @foreach (var user in users)
+    {
+        <div class="user-card">
+            <h2>@user.Name</h2>
+            <!-- Diğer kullanıcı bilgileri -->
+            <button @onclick="() => ShowUserAlbums(user.Id)">Album Listesi</button>
+        </div>
+    }
+}
+else
+{
+    <p>Veriler yükleniyor...</p>
 }
 
 @code {

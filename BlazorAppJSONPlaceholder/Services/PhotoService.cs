@@ -1,22 +1,32 @@
 ﻿using BlazorAppJSONPlaceholder.Models;
+using Newtonsoft.Json;
 
 namespace BlazorAppJSONPlaceholder.Services
 {
     // PhotoService.cs
     public class PhotoService
     {
-        private readonly HttpClient _httpClient;
 
-        public PhotoService(HttpClient httpClient)
+
+        public PhotoService()
         {
-            _httpClient = httpClient;
+
         }
 
         public async Task<List<Photo>> GetPhotosAsync(int albumId)
         {
             // API'den albümün fotoğraflarını çekmek için HTTP isteği yapın
-            var response = await _httpClient.GetFromJsonAsync<List<Photo>>($"https://jsonplaceholder.typicode.com/albums/{albumId}/photos");
-            return response;
+
+            List<Photo> photos = new List<Photo>();
+            HttpClient httpClient = new HttpClient();
+            var url = $"https://jsonplaceholder.typicode.com/albums/{albumId}/photos";
+            var response = await httpClient.GetAsync(url);
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                photos = JsonConvert.DeserializeObject<List<Photo>>(json);
+            }
+            return photos;
         }
 
     }

@@ -5,16 +5,21 @@
 @inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager; // NavigationManager'ı enjekte edin
 
 <h1>Albüm Listesi</h1>
-
-@foreach (var album in albums)
+@if (albums != null)
 {
-    <div class="album-card">
-        <h2>@album.Title</h2>
-        <!-- Diğer albüm bilgileri -->
-        <button @onclick="() => ShowAlbumPhotos(album.Id)">Fotoğraf Listesi</button>
-    </div>
+    @foreach (var album in albums)
+    {
+        <div class="album-card">
+            <h2>@album.Title</h2>
+            <!-- Diğer albüm bilgileri -->
+            <button @onclick="() => ShowAlbumPhotos(album.Id)">Fotoğraf Listesi</button>
+        </div>
+    }
 }
-
+else
+{
+    <p>Veriler yükleniyor...</p>
+}
 @code {
     List<Album> albums;
 

@@ -6,13 +6,21 @@
 
 <h1>Fotoğraf Listesi</h1>
 
-@foreach (var photo in photos)
+@if (photos != null)
 {
-    <div class="photo-card">
-        <h2>@photo.Title</h2>
-        <img src="@photo.Url" alt="@photo.Title" />
-        <!-- Diğer fotoğraf bilgileri -->
-    </div>
+
+    @foreach (var photo in photos)
+    {
+        <div class="photo-card">
+            <h2>@photo.Title</h2>
+            <img src="@photo.Url" alt="@photo.Title" />
+            <!-- Diğer fotoğraf bilgileri -->
+        </div>
+    }
+}
+else
+{
+    <p>Veriler yükleniyor...</p>
 }
 
 @code {
