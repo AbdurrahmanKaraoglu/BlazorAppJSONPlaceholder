@@ -1,0 +1,28 @@
+﻿<!-- Photos.razor -->
+@page "/photos/{albumId:int}"
+@using BlazorAppJSONPlaceholder.Models;
+@inject BlazorAppJSONPlaceholder.Services.PhotoService photoService;  // PhotoService servisini enjekte edin
+@inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager; // NavigationManager'ı enjekte edin
+
+<h1>Fotoğraf Listesi</h1>
+
+@foreach (var photo in photos)
+{
+    <div class="photo-card">
+        <h2>@photo.Title</h2>
+        <img src="@photo.Url" alt="@photo.Title" />
+        <!-- Diğer fotoğraf bilgileri -->
+    </div>
+}
+
+@code {
+    List<Photo> photos;
+
+    [Parameter]
+    public int albumId { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        photos = await photoService.GetPhotosAsync(albumId);
+    }
+}

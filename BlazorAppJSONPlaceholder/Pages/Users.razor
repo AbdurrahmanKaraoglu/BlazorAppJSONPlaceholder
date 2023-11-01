@@ -1,0 +1,31 @@
+﻿<!-- Users.razor -->
+@page "/users"
+@using BlazorAppJSONPlaceholder.Models;
+@inject BlazorAppJSONPlaceholder.Services.UserService userService;  // UserService servisini enjekte edin
+@inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager; // NavigationManager'ı enjekte edin
+
+<h1>Kullanıcı Listesi</h1>
+
+@foreach (var user in users)
+{
+    <div class="user-card">
+        <h2>@user.Name</h2>
+        <!-- Diğer kullanıcı bilgileri -->
+        <button @onclick="() => ShowUserAlbums(user.Id)">Album Listesi</button>
+    </div>
+}
+
+@code {
+    List<User> users;
+
+    protected override async Task OnInitializedAsync()
+    {
+        users = await userService.GetUsersAsync();
+    }
+
+    private void ShowUserAlbums(int userId)
+    {
+        // Kullanıcının albüm listesi sayfasına git
+        NavigationManager.NavigateTo($"/albums/{userId}");
+    }
+}
