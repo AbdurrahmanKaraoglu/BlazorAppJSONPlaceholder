@@ -3,6 +3,7 @@
 @using BlazorAppJSONPlaceholder.Models;
 @inject BlazorAppJSONPlaceholder.Services.PhotoService photoService;  // PhotoService servisini enjekte edin
 @inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager; // NavigationManager'ı enjekte edin
+@* <link href="BlazorAppJSONPlaceholder.styles.css" rel="stylesheet" /> *@
 
 <h1>Fotoğraf Listesi</h1>
 
@@ -45,11 +46,180 @@
 }
 else
 {
-    <p>Veriler yükleniyor...</p>
+    // Ekranın ortasında yükleniyor animasyonu göster
+    <div class="loading-container">
+        <!-- Yükleniyor animasyonu -->
+        @*         <div class="spinner-border text-primary" role="status">
+    <span class="sr-only">Yükleniyor...</span>
+    </div> *@
+        @* // araya boşluk bırak *@
+        <br />
+        <div class="spinner-border" style="color: #9F0D7F" role="status">
+            <span class="sr-only">Yükleniyor...</span>
+        </div>
+        <br />
+
+        <div class="text-rainbow-animation">Yükleniyor...</div>
+        <br />
+    </div>
+
+    <section>
+
+        <div class="loading loading01">
+            <span>Y</span>
+            <span>Ü</span>
+            <span>K</span>
+            <span>L</span>
+            <span>E</span>
+            <span>N</span>
+            <span>İ</span>
+            <span>Y</span>
+            <span>O</span>
+            <span>R</span>
+            <span>...</span>
+        </div>
+    </section>
+
+    <h1>YÜKLENİYOR</h1>
+
+    <section>
+        <h2>KOD #1</h2>
+        <div class="loading loading01">
+            <span>Y</span>
+            <span>Ü</span>
+            <span>K</span>
+            <span>L</span>
+            <span>E</span>
+            <span>N</span>
+            <span>İ</span>
+            <span>Y</span>
+            <span>O</span>
+            <span>R</span>
+        </div>
+    </section>
+
+    <section>
+        <h2>KOD #2</h2>
+        <div class="loading loading02">
+            <span>Y</span>
+            <span>Ü</span>
+            <span>K</span>
+            <span>L</span>
+            <span>E</span>
+            <span>N</span>
+            <span>İ</span>
+            <span>Y</span>
+            <span>O</span>
+            <span>R</span>
+        </div>
+    </section>
+
+    <section>
+        <h2>KOD #3</h2>
+        <div class="loading loading03">
+            <span>Y</span>
+            <span>Ü</span>
+            <span>K</span>
+            <span>L</span>
+            <span>E</span>
+            <span>N</span>
+            <span>İ</span>
+            <span>Y</span>
+            <span>O</span>
+            <span>R</span>
+        </div>
+    </section>
+
+    <section>
+        <h2>KOD #4</h2>
+        <div class="loading loading04">
+            <span>Y</span>
+            <span>Ü</span>
+            <span>K</span>
+            <span>L</span>
+            <span>E</span>
+            <span>N</span>
+            <span>İ</span>
+            <span>Y</span>
+            <span>O</span>
+            <span>R</span>
+        </div>
+    </section>
+
+    <section>
+        <h2>KOD #5</h2>
+        <div class="loading loading05">
+            <span>Y</span>
+            <span>Ü</span>
+            <span>K</span>
+            <span>L</span>
+            <span>E</span>
+            <span>N</span>
+            <span>İ</span>
+            <span>Y</span>
+            <span>O</span>
+            <span>R</span>
+        </div>
+    </section>
+
+    <section>
+        <h2>KOD #6</h2>
+        <div class="loading loading06">
+            <span data-text="Y">Y</span>
+            <span data-text="Ü">Ü</span>
+            <span data-text="K">K</span>
+            <span data-text="L">L</span>
+            <span data-text="E">E</span>
+            <span data-text="N">N</span>
+            <span data-text="İ">İ</span>
+            <span data-text="Y">Y</span>
+            <span data-text="O">O</span>
+            <span data-text="R">R</span>
+        </div>
+    </section>
+
+    <section>
+        <h2>KOD #7</h2>
+        <div class="loading loading07">
+            <span data-text="Y">Y</span>
+            <span data-text="Ü">Ü</span>
+            <span data-text="K">K</span>
+            <span data-text="L">L</span>
+            <span data-text="E">E</span>
+            <span data-text="N">N</span>
+            <span data-text="İ">İ</span>
+            <span data-text="Y">Y</span>
+            <span data-text="O">O</span>
+            <span data-text="R">R</span>
+        </div>
+    </section>
+
+    <section>
+        <h2>KOD #8</h2>
+        <div class="loading loading08">
+            <span data-text="Y">Y</span>
+            <span data-text="Ü">Ü</span>
+            <span data-text="K">K</span>
+            <span data-text="L">L</span>
+            <span data-text="E">E</span>
+            <span data-text="N">N</span>
+            <span data-text="İ">İ</span>
+            <span data-text="Y">Y</span>
+            <span data-text="O">O</span>
+            <span data-text="R">R</span>
+        </div>
+    </section>
+
+
+
+
+
+
+
 }
 
 @code {
-    List<Photo> photos;
+    List<Photo> photos = new List<Photo>(); // Fotoğraf listesi için boş bir liste oluştur[];
 
     [Parameter]
     public int albumId { get; set; }
