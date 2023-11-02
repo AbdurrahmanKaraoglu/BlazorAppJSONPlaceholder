@@ -58,3 +58,63 @@
         .album-card button:hover {
             background-color: #0056b3;
         }
+
+
+/* Tablo aralarına yatay çizgi eklemek */
+.table {
+    border-collapse: collapse;
+    width: 100%;
+    color: #1C2B2D;
+    /*    background-color: #0C356A;*/
+}
+
+    .table th, .table td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+
+    /* Dikey çizgileri ayarlamak için */
+    .table th {
+        border-left: 1px solid #e0e0e0;
+        border-right: 1px solid #e0e0e0;
+    }
+
+    /* Tablonun başlığını stillemek için */
+    .table thead {
+        color: #ffffff; /* Beyaz renk */
+        accent-color: #16a419;
+        background-color: #6829d1; /* Mavi renk */
+        /*border-bottom: 1px solid #54E346;*/
+    }
+
+
+
+        .table thead tr:hover {
+            /*animation: colorChange 0.2s linear 1s both;*/
+            transition-delay : 1.2s;
+            background-color: #16a419;
+
+        }
+
+@keyframes colorChange {
+    0% {
+        background-color: initial;
+    }
+
+    100% {
+        background-color: #16a419;
+    }
+}
+
+
+/* Tablonun hücrelerini zebra çizgili yapmak için */
+.table tbody tr:nth-child(odd) {
+    background-color: #FF6C22;
+}
+
+/* Fare üzerine geldiğinde hücre rengini değiştirmek için */
+.table tbody tr:hover {
+    transition-delay : 0.4s;
+    background-color: #00A9FF;
+}

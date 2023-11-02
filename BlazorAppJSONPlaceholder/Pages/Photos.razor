@@ -8,15 +8,40 @@
 
 @if (photos != null)
 {
+    <table class="table">
+        <thead>
+            <tr>
+                <th>AlbumId</th>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Url</th>
+                <th>ThumbnailUrl</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var photo in photos)
+            {
+                <tr>
+                    <td>@photo.AlbumId</td>
+                    <td>@photo.Id</td>
+                    <td>@photo.Title</td>
+                    <td>@photo.Url</td>
+                    <td>@photo.ThumbnailUrl</td>
+                </tr>
 
-    @foreach (var photo in photos)
+            }
+        </tbody>
+    </table>
+
+
+    @*     @foreach (var photo in photos)
     {
         <div class="photo-card">
             <h2>@photo.Title</h2>
             <img src="@photo.Url" alt="@photo.Title" />
             <!-- Diğer fotoğraf bilgileri -->
         </div>
-    }
+    } *@
 }
 else
 {
